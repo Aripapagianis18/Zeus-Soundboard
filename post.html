@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ 	<head>
+ 		<meta charset="utf-8">
+ 		<title>Post</title>
+
+  		<!-- Sets initial viewport load and disables zooming  -->
+  		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+		<!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!-- Include the compiled Ratchet CSS -->
+		<link href="css/ratchet.css" rel="stylesheet">
+
+		<!-- Include the compiled Ratchet JS -->
+		<script src="js/ratchet.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="rating.css">
+		
+
+	</head>
+	
+	<body>
+
+
+  			<input type="text" placeholder="Title" id="Title">
+  			<input type="search" placeholder="Description" id= "Description">
+  			<textarea rows="5" placeholder="Recipe" id="Recipe"></textarea>
+  			<input type="search" placeholder="Image URL" id= "Image">
+
+  			
+
+  			<input class="btn btn-positive btn-block" type="submit" value="Post" onclick="submit()" /> 
+
+  			<nav class="bar bar-tab bar-footer" style="position:fixed;">
+		 	<a class="tab-item active" href="#">
+   				<span class="icon icon-home"></span>
+    			<span class="tab-label">Home</span>
+  			</a>
+  			<a class="tab-item" href="#">
+    			<span class="icon icon-person"></span>
+    			<span class="tab-label">Profile</span>
+  			</a>
+  			<a class="tab-item" href="#">
+    			<span class="icon icon-star-filled"></span>
+    			<span class="tab-label">Favorites</span>
+  			</a>
+		</nav>
+				
+  			
+
+	</body> 
+	<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyC4bBixz0vIevbEivES7jULQsbFSlt88Hc",
+	    authDomain: "hungr-b48be.firebaseapp.com",
+	    databaseURL: "https://hungr-b48be.firebaseio.com",
+	    projectId: "hungr-b48be",
+	    storageBucket: "hungr-b48be.appspot.com",
+	    messagingSenderId: "380370372661"
+	  };
+	  firebase.initializeApp(config);
+	  var u;
+	  firebase.auth().onAuthStateChanged(function(user) {
+				  
+				  if (user){
+					  //Welcome
+					  u = user;
+				  }else{
+					  console.log("not logged in");
+					  window.location = "index.html";
+				  }
+			  });
+  
+		function submit(){
+			var database= firebase.database().ref();
+			title_value = $('#Title').val();
+			Description_value = $('#Description').val();
+			Recipe_value = $('#Recipe').val();
+			Image_value = $('#Image').val();
+			database.child('data').push ({
+				"title": title_value, 
+				"Description": Description_value,
+				"Recipe": Recipe_value, 
+				"Image": Image_value,
+				"User":u.email})
+			database.child('data').on('value',function(snapshot){
+				console.log(snapshot.val())
+
+				window.location.href = "home.html";
+			});
+
+}
+	
+		</script>
+
+</html>
