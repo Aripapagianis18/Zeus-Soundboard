@@ -1,7 +1,9 @@
-                <!doctype html>
+ <!doctype html>
 	<html>
 
 		<head>
+			<meta charset="utf-8">
+ 		<title>Login</title>
 			<style>
 			.hide{
 				display:none;
@@ -106,7 +108,6 @@
 					})
 					
 					
-
 					
 			  };
 			  //signup event
@@ -120,7 +121,6 @@
 				  promise.catch(e => console.log(e.message));
 				  //Welcome user
 				  document.getElementById("Welcome").innerHTML = "Welcome to your new Hungr account! Please click Login to continue."
-
 			  };
 			  function help(){
 			  	 document.getElementById("help").innerHTML = "Type in your email and password, then click signup. After that follow instructions."
@@ -141,7 +141,6 @@
 					  btnlogout.classList.add("hide");
 				  }
 			  });
-
 			</script>
 			<div id="container">
 				<h1 id="header">Welcome to Hungr</h1>
@@ -153,6 +152,7 @@
 				<div class="btn-div" id="login-div"><button class= "btn" id="login" onclick="login()" >Log In</button></div>
 				<div class="btn-div" id="signp-div"><button class="btn" id="signup" onclick="signup()" >Sign Up</button></div>
 				<button id= "help" onclick= "help()">Help</button>
+
 		</body>
 
 	</html>
