@@ -63,6 +63,18 @@
 			#signup{
 				padding: 4px 4px 4px 4px;
 			}
+			#help{
+				background-color: #5CB85C;
+				color: white;
+				padding: 4px 4px 4px 4px;
+				margin: auto;
+				margin-bottom: 3px;
+				display: inline;
+				border: 2px groove rgb(92,184,92);
+				font-family: arial;
+				font-size:14px;
+				text-decoration:none;
+			}
 			</style>
 		</head>
 
@@ -110,6 +122,9 @@
 				  document.getElementById("Welcome").innerHTML = "Welcome to your new Hungr account! Please click Login to continue."
 
 			  };
+			  function help(){
+			  	 document.getElementById("help").innerHTML = "Type in your email and password, then click signup. After that follow instructions."
+			  }
 			  //log out
 			  function logout(){
 				 firebase.auth().signOut();
@@ -126,6 +141,7 @@
 					  btnlogout.classList.add("hide");
 				  }
 			  });
+
 			</script>
 			<div id="container">
 				<h1 id="header">Welcome to Hungr</h1>
@@ -136,6 +152,7 @@
 				<br>
 				<div class="btn-div" id="login-div"><button class= "btn" id="login" onclick="login()" >Log In</button></div>
 				<div class="btn-div" id="signp-div"><button class="btn" id="signup" onclick="signup()" >Sign Up</button></div>
+				<button id= "help" onclick= "help()">Help</button>
 		</body>
 
 	</html>
