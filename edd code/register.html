@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Hungr Register</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <style type="text/css">
+    #contacts p, 
+    #contacts p.lead{
+      margin: 0;
+    }
+	#header{
+		background-color: #5CB85C;
+		display: inline;
+		max-width: 300px;
+		padding: 5px 50px 5px 5px;
+		margin: auto;
+		border-radius: 5px;
+		margin-top: 10px;
+		color: white;
+	}
+    .authenticated{
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .unauthenticated{
+      display: none;
+    }
+	.modal-content{
+		margin:auto;
+		width: 50%;
+		font-size: 20px;
+	}
+    .modal-header:last-child{
+      border-bottom: 0;
+    }
+	.modal-header{
+		margin-bottom:10px;
+		margin: auto;
+		width: 50%;
+	}
+	.control-label{
+		font-size: 12px;
+	}
+	#bottom-toggles{
+	margin-bottom: 5px;
+	padding: 0 0 0 0;
+	width: 50%;
+	margin: auto;
+	font-size: 18px;
+	}
+	.btn{
+		background-color: #5CB85C;
+		color: white;
+		padding: 4px 4px 4px 4px;
+		border: 2px groove rgb(92,184,92);
+		font-family: arial;
+		font-size:14px;
+		text-decoration:none;
+	}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="header">Welcome to Hungr</h1>
+    <hr/>
+    <div class="row unauthenticated">
+      <div class="col-md-6">
+        <ul id="contacts" class="list-group">
+          <!-- Conatct Object li.list-group-item.contact will be added here by js -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="registerModalLabel">Register</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">First Name:</label>
+            <input type="text" class="form-control" id="registerFirstName">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Last Name:</label>
+            <input type="text" class="form-control" id="registerLastName">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Email:</label>
+            <input type="text" class="form-control" id="registerEmail">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Password:</label>
+            <input type="password" class="form-control" id="registerPassword">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Confirm Password:</label>
+            <input type="password" class="form-control" id="registerConfirmPassword">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn" id="register-toggle" href="index.html">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+	<div id="bottom-toggles">
+		<span class="userAuth authenticated pull-right">
+			<a class="btn" id="register-toggle" href="register.html">Register</a>
+			<a class="btn" id="login-toggle" href="index.html">Login</a>
+		</span>
+	</div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Latest compiled and minified Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!-- Include Firebase Library -->
+  <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
+  <!-- Contacts Store JavaScript -->
+  <script src="login.js"></script>
+</body>
+</html>
+<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA_pko80D647QhCOAFjh-tWRXwOgEFTo8c",
+    authDomain: "hungr-46fd2.firebaseapp.com",
+    databaseURL: "https://hungr-46fd2.firebaseio.com",
+    storageBucket: "hungr-46fd2.appspot.com",
+    messagingSenderId: "86103049413"
+  };
+  firebase.initializeApp(config);
+</script>

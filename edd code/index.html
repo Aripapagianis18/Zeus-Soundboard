@@ -1,0 +1,141 @@
+                <!doctype html>
+	<html>
+
+		<head>
+			<style>
+			.hide{
+				display:none;
+			}
+			#header{
+				background-color: #5CB85C;
+				display: block;
+				padding: 17px 0px 17px 25px;
+				margin-bottom: 50px;
+				color: white;
+				font-size: 45px;
+				border-bottom: 5px solid black;
+				border-top: 5px solid black;
+			}
+			#email{
+				height: 40px;
+				width: 400px;
+				font-size: 20px;
+				display: block;
+				margin: auto;
+				margin-bottom: 20px;
+				padding: 0px 0px 0px 10px;
+				outline: transparent
+				border: 1px solid black;
+			}
+			#pass{
+				height: 40px;
+				width: 400px;
+				font-size: 20px;
+				display: block;
+				margin: auto;
+				margin-bottom: 5px;
+				padding: 0px 0px 0px 10px;
+			}
+			#error{
+				color:rgb(245, 0, 0);
+			}
+			#Welcome{
+				color:rgb(0,150,0);
+			}
+			.message{
+				text-align: center;
+			}
+			.btn{
+				background-color: #5CB85C;
+				color: white;
+				width:50%;
+				margin: auto;
+				display: block;
+				border: 2px groove rgb(92,184,92);
+				font-family: arial;
+				font-size:18px;
+				text-decoration:none;
+			}
+			#login{
+				margin-bottom: 10px;
+				padding: 4px 4px 4px 4px;
+			}
+			#signup{
+				padding: 4px 4px 4px 4px;
+			}
+			</style>
+		</head>
+
+		<body>
+			<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC4bBixz0vIevbEivES7jULQsbFSlt88Hc",
+    authDomain: "hungr-b48be.firebaseapp.com",
+    databaseURL: "https://hungr-b48be.firebaseio.com",
+    projectId: "hungr-b48be",
+    storageBucket: "hungr-b48be.appspot.com",
+    messagingSenderId: "380370372661"
+  };
+  firebase.initializeApp(config);
+			   //login event
+			  function login(){
+				  	//get Email and Pass
+					var email = document.getElementById("email").value;
+					var pass = document.getElementById("pass").value;
+					var auth = firebase.auth();
+					//sign in
+					auth.signInWithEmailAndPassword(email,pass).then(function(user){
+						window.location.href = "home.html";
+					}).catch(function(user){
+						console.log("Login Fail")
+						document.getElementById("error").innerHTML = "Invalid Username or Password"
+					})
+					
+					
+
+					
+			  };
+			  //signup event
+			  function signup(){
+				  //get Email and Pass
+				  var email = document.getElementById("email").value;
+				  var pass = document.getElementById("pass").value;
+				  var auth = firebase.auth();
+				  //sign up
+				  var promise = auth.createUserWithEmailAndPassword(email,pass);
+				  promise.catch(e => console.log(e.message));
+				  //Welcome user
+				  document.getElementById("Welcome").innerHTML = "Welcome to your new Hungr account! Please click Login to continue."
+
+			  };
+			  //log out
+			  function logout(){
+				 firebase.auth().signOut();
+				 console.log("logged out");
+			  };
+			  //realtime listener
+			  firebase.auth().onAuthStateChanged(firebaseUser => {
+				  var btnlogout = document.getElementById("logout");
+				  if (firebaseUser){
+					  console.log(firebaseUser);
+					  btnlogout.classList.remove("hide");
+				  }else{
+					  console.log("not logged in");
+					  btnlogout.classList.add("hide");
+				  }
+			  });
+			</script>
+			<div id="container">
+				<h1 id="header">Welcome to Hungr</h1>
+				<input type="text" placeholder="Email" id="email">
+				<input type="password" placeholder="Password" id="pass">
+				<div id="error" class="message"></div>
+				<div id="Welcome" class="message"></div>
+				<br>
+				<div class="btn-div" id="login-div"><button class= "btn" id="login" onclick="login()" >Log In</button></div>
+				<div class="btn-div" id="signp-div"><button class="btn" id="signup" onclick="signup()" >Sign Up</button></div>
+		</body>
+
+	</html>
