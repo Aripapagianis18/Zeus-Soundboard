@@ -63,6 +63,9 @@
 				margin-bottom: 10px;
 				padding: 4px 4px 4px 4px;
 			}
+			#helpuser{
+				color:rgb(0,150,0);
+			}
 			#signup{
 				padding: 4px 4px 4px 4px;
 			}
@@ -126,7 +129,7 @@
 
 			  };
 			  function help(){
-			  	 document.getElementById("help").innerHTML = "Type in your email and password, then click signup. After that follow instructions."
+			  	 document.getElementById("helpuser").innerHTML = "Type in your email and password, then click signup. After that follow instructions."
 			  }
 			  //log out
 			  function logout(){
@@ -156,6 +159,7 @@
 				<div class="btn-div" id="login-div"><button class= "btn" id="login" onclick="login()" >Log In</button></div>
 				<div class="btn-div" id="signp-div"><button class="btn" id="signup" onclick="signup()" >Sign Up</button></div>
 				<button id= "help" onclick= "help()">Help</button>
+				<div id= "helpuser" class="message"></div>
 		</body>
 
 	</html>
