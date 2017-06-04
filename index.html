@@ -153,7 +153,7 @@
 				auth.sendPasswordResetEmail(emailAddress).then(function() {
   				document.getElementById("forgotpassword").innerHTML= "An email has been sent to you to reset your password"
 				}, function(error) {
- 				 console.log(error)
+ 				 document.getElementById("forgotpassword").innerHTML= "Please enter a valid email, then click forgot password"
 				});
 			  }
 			  function help(){
