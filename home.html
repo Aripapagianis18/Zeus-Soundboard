@@ -3,7 +3,7 @@
  	<head>
  		<meta charset="utf-8">
  		<title>Homepage</title>
- 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+ 		<link rel="shortcut icon" type="image/x-icon" href="Hungr.ico" />
 
   		<!-- Sets initial viewport load and disables zooming  -->
   		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -31,6 +31,18 @@
 				font-size:14px;
 				text-decoration:none;
 			}
+			#like{
+				background-color: #5CB85C;
+				color: white;
+				padding: 4px 30px 4px 30px;
+				margin: auto;
+				margin-bottom: 3px;
+				display: inline;
+				border: 2px groove rgb(92,184,92); 
+				font-family: arial;
+				font-size:14px;
+				text-decoration:none;
+				]
 		</style>
 	</head>
 	
@@ -46,7 +58,7 @@
 
 		<!-- Block button in standard bar fixed below top bar -->
 		<div class="bar bar-standard bar-header-secondary">
-		  	<input type="text" placeholder="Search" id= "Search" style="width:95%">
+		  	<input type="text" placeholder="Search" id= "Search" style="width:75%";>
 		  	<button id= "logout" onclick="search()">Search</button>
 		
 		</div>
@@ -60,6 +72,7 @@
     					<p>by {{User}}</p>
     					<h5>Description</h5><p>{{Description}}</p><h5>Recipe</h5><p>{{Recipe}}</p>
     					<img src="{{Image}}" alt="Avatar" style="width:100%" width=25% height=50% >
+    					<button id= "like" onclick= "like()">Like</button>
     					
     					
 					
@@ -87,7 +100,7 @@
 
 		<!-- Segmented control in standard bar fixed to top -->
 		<nav class="bar bar-tab bar-footer" style="position:fixed;">
-		 	<a class="tab-item active" href="#">
+		 	<a class="tab-item active" href="home.html">
    				<span class="icon icon-home"></span>
     			<span class="tab-label">Home</span>
   			</a>
@@ -152,6 +165,7 @@
 					  	}	
 					  	document.getElementById("posts").innerHTML = build;
 					  	  }
+		function like(){}
 		
 
 		
