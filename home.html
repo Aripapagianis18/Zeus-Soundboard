@@ -31,7 +31,7 @@
 				font-size:14px;
 				text-decoration:none;
 			}
-			#like{
+			#favorite{
 				background-color: #5CB85C;
 				color: white;
 				padding: 4px 30px 4px 30px;
@@ -52,7 +52,7 @@
 		<div class="bar bar-standard">
 		  <a class="icon icon-compose pull-left" onclick= "window.location = 'post.html'" id="link"></a>
 		  <button onclick="logout()" id="logout" class="pull-right">Log Out</button>
-		  <a class="icon icon-gear pull-right"></a>
+		 
 		</div>
 
 
@@ -72,6 +72,7 @@
     					<p>by {{User}}</p>
     					<h5>Description</h5><p>{{Description}}</p><h5>Recipe</h5><p>{{Recipe}}</p>
     					<img src="{{Image}}" alt="Avatar" style="width:100%" width=25% height=50% >
+    					<button id="favorite" onclick= "favorite()">Favorite</button>	
     					
     					
     					
@@ -100,15 +101,15 @@
 
 		<!-- Segmented control in standard bar fixed to top -->
 		<nav class="bar bar-tab bar-footer" style="position:fixed;">
-		 	<a class="tab-item active" href="home.html">
+		 	<a class="tab-item active" onclick = "window.location.href= 'home.html'">
    				<span class="icon icon-home"></span>
     			<span class="tab-label">Home</span>
   			</a>
-  			<a class="tab-item" href="#">
+  			<a class="tab-item" onclick= "window.location.href='profile.html'">
     			<span class="icon icon-person"></span>
     			<span class="tab-label">Profile</span>
   			</a>
-  			<a class="tab-item" href="#">
+  			<a class="tab-item" onclick= "window.location.href= 'favorite.html'">
     			<span class="icon icon-star-filled"></span>
     			<span class="tab-label">Favorites</span>
   			</a>
@@ -165,7 +166,9 @@
 					  	}	
 					  	document.getElementById("posts").innerHTML = build;
 					  	  }
-		function like(){}
+		function favorite(){
+
+		}
 		
 
 		

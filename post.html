@@ -22,29 +22,37 @@
 		
 
 	</head>
+	<style>
+		#Title{
+			margin-top: 20px
+		}
+
+
+
+	</style>
 	
 	<body>
 
 
   			<input type="text" placeholder="Title" id="Title">
-  			<input type="search" placeholder="Description" id= "Description">
+  			<input type="text" placeholder="Description" id= "Description">
   			<textarea rows="5" placeholder="Recipe" id="Recipe"></textarea>
-  			<input type="search" placeholder="Image URL" id= "Image">
+  			<input type="text" placeholder="Image URL" id= "Image">
 
   			
 
   			<input class="btn btn-positive btn-block" type="submit" value="Post" onclick="submit()" /> 
 
   			<nav class="bar bar-tab bar-footer" style="position:fixed;">
-		 	<a class="tab-item active" href="#">
+		 	<a class="tab-item" onclick = "window.location.href = 'home.html'">
    				<span class="icon icon-home"></span>
     			<span class="tab-label">Home</span>
   			</a>
-  			<a class="tab-item" href="#">
+  			<a class="tab-item" onclick = "window.location.href = 'profile.html'">
     			<span class="icon icon-person"></span>
     			<span class="tab-label">Profile</span>
   			</a>
-  			<a class="tab-item" href="#">
+  			<a class="tab-item" onclick= "window.location.href= 'favorite.html'">
     			<span class="icon icon-star-filled"></span>
     			<span class="tab-label">Favorites</span>
   			</a>

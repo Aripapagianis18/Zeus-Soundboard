@@ -1,0 +1,98 @@
+<!DoctypeHTML>
+	<head>
+		<meta charset="utf-8">
+		<title>Profile</title>
+		<link rel="shortcut icon" type="image/x-icon" href="Hungr.ico" />
+		<!-- Sets initial viewport load and disables zooming  -->
+  		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+		<!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!-- Include the compiled Ratchet CSS -->
+		<link href="css/ratchet.css" rel="stylesheet">
+
+		<!-- Include the compiled Ratchet JS -->
+		<script src="js/ratchet.js"></script>
+	</head>
+	<style>
+	#logout{
+		background-color: #5CB85C;
+				color: white;
+				padding: 4px 4px 4px 4px;
+				margin: auto;
+				margin-bottom: 3px;
+				display: inline;
+				border: 2px groove rgb(92,184,92);
+				border-radius: 20px; 
+				font-family: arial;
+				font-size:14px;
+				text-decoration:none;
+	}
+	</style>
+	<body>
+		<div class="bar bar-standard">
+		  <a class="icon icon-compose pull-left" onclick= "window.location = 'post.html'" id="link"></a>
+		  <button onclick="logout()" id="logout" class="pull-right">Log Out</button>
+		 
+		</div>
+
+		<nav class="bar bar-tab bar-footer" style="position:fixed;">
+		 	<a class="tab-item" onclick= "window.location.href= 'home.html'">
+   				<span class="icon icon-home"></span>
+    			<span class="tab-label">Home</span>
+  			</a>
+  			<a class="tab-item active" href="#">
+    			<span class="icon icon-person"></span>
+    			<span class="tab-label">Profile</span>
+  			</a>
+  			<a class="tab-item" onclick= "window.location='favorite.html'">
+    			<span class="icon icon-star-filled"></span>
+    			<span class="tab-label">Favorites</span>
+  			</a>
+		</nav>
+		<h1> PROFILE</h1>
+		
+    					
+    					
+    					
+					
+
+					
+				
+		  	
+		 <ul class="table-view" style="overflow:auto;" id="posts"></ul>
+		
+		<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyC4bBixz0vIevbEivES7jULQsbFSlt88Hc",
+		    authDomain: "hungr-b48be.firebaseapp.com",
+		    databaseURL: "https://hungr-b48be.firebaseio.com",
+		    projectId: "hungr-b48be",
+		    storageBucket: "hungr-b48be.appspot.com",
+		    messagingSenderId: "380370372661"
+		  };
+		  firebase.initializeApp(config);
+
+		function logout(){
+						 firebase.auth().signOut();
+						 console.log("logged out");
+					  };
+					   firebase.auth().onAuthStateChanged(firebaseUser => {
+				  var btnlogout = document.getElementById("logout");
+				  if (firebaseUser){
+					  console.log(firebaseUser);
+					  btnlogout.classList.remove("hide");
+				  }else{
+					  console.log("not logged in");
+					  btnlogout.classList.add("hide");
+				  	  window.location.href="index.html";
+				  }
+
+			  });
+		  			  
+		</script>
