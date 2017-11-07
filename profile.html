@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Profile</title>
-		<link rel="shortcut icon" type="image/x-icon" href="Hungr.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="car_icon_hi_ino_icon.ico" />
 		<!-- Sets initial viewport load and disables zooming  -->
   		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
@@ -18,18 +18,82 @@
 	</head>
 	<style>
 	#logout{
-		background-color: #5CB85C;
+		background-color: #336699;
 				color: white;
 				padding: 4px 4px 4px 4px;
 				margin: auto;
 				margin-bottom: 3px;
+				margin-top: 5px;
 				display: inline;
-				border: 2px groove rgb(92,184,92);
+				border: 2px groove rgb(92,92,184);
 				border-radius: 20px; 
 				font-family: arial;
 				font-size:14px;
 				text-decoration:none;
 	}
+	#header{
+				background-color: #336699;
+				display: block;
+				padding: 17px 0px 17px 25px;
+				margin-bottom: 50px;
+				color: white;
+				font-size: 45px;
+				border-bottom: 5px solid black;
+				border-top: 5px solid black;
+			}
+	#image{
+				width:35%;
+				margin-top:-40px;
+				margin-left:10px;
+	}
+	#description{
+				margin-left: 450px;
+				margin-top: -390	px;
+				font-size: 20px;
+	}
+	#line{
+				margin-top: 375px;
+	}
+	#img{
+				width:90%;
+	}
+	#lines{
+				margin-top: -0px
+	}
+	#headers{
+				background-color: #336699;
+				display: block;
+				padding: 17px 0px 17px 25px
+				margin-bottom: 50px;
+				color: white;
+				font-size: 35px;
+				border-bottom: 5px solid black;
+				border-top: 5px solid black;
+
+	}
+	.btn{
+				background-color: #336699;
+				color: white;
+				width:100%;
+				margin: auto;
+				display: block;
+				border: 2px groove rgb(92,92,184);
+				font-family: arial;
+				font-size:18px;
+				text-decoration:none;
+			}
+	#favorite{
+				background-color: #336699;
+				color: white;
+				padding: 4px 30px 4px 30px;
+				margin: auto;
+				margin-bottom: 3px;
+				display: inline;
+				border: 2px groove rgb(92,92,184); 
+				font-family: arial;
+				font-size:14px;
+				text-decoration:none;
+				
 	</style>
 	<body>
 		<div class="bar bar-standard">
@@ -49,10 +113,29 @@
   			</a>
   			<a class="tab-item" onclick= "window.location='favorite.html'">
     			<span class="icon icon-star-filled"></span>
-    			<span class="tab-label">Favorites</span>
+    			<span class="tab-label">Realtime Data</span>
   			</a>
 		</nav>
-		<h1> PROFILE</h1>
+		<h1 id="header">Ari Papagianis</h1>
+		<img id="image" src="12036480_1161341317231323_5912527498596459440_n.jpg" alt="Avatar" width=10% height=25% >
+		<p id= "description"> I enjoy riding my mountain bike, hiking, and running. Excercising is a great way to feel better and it helps the environment everytime.	</p>
+		 <ul class="table-view" style="overflow:auto;" id="line">
+		 <div class="media-body" id="post">
+		 <h1 id= "headers" class= "btn"> My Excersize	</h1>
+		 <ul id="lines" class="table-view" style="overflow:auto;" id="line">
+    			<li class="table-view-cell media">	
+    				<div class="media-body" id="post">
+    					<h4><b>Hiking Trip</b></h4> 
+    					<p>by aripapagianis@gmail.com</p>
+    					<h5>Description</h5><p> Walked to my finish my errands yesterday and went for about 17 miles. I saved about 3 Trees!
+						</p><h5>Recipe</h5><p>
+							Trees saved: 3
+							Miles Walked: 17
+						</p>
+    					<img id="img" src="http://cdn.coresites.factorymedia.com/mpora_new/wp-content/uploads/2014/08/Map-My-Run-Mario.png" alt="Avatar" width=25% height=50% >
+    					<button id="favorite" onclick= "favorite()">Favorite</button>	
+    				</div>
+    			</li>		
 		
     					
     					
@@ -62,21 +145,21 @@
 					
 				
 		  	
-		 <ul class="table-view" style="overflow:auto;" id="posts"></ul>
+		 
 		
-		<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 		<script>
 		  // Initialize Firebase
-		  var config = {
-		    apiKey: "AIzaSyC4bBixz0vIevbEivES7jULQsbFSlt88Hc",
-		    authDomain: "hungr-b48be.firebaseapp.com",
-		    databaseURL: "https://hungr-b48be.firebaseio.com",
-		    projectId: "hungr-b48be",
-		    storageBucket: "hungr-b48be.appspot.com",
-		    messagingSenderId: "380370372661"
-		  };
-		  firebase.initializeApp(config);
+		 var config = {
+    apiKey: "AIzaSyCGTxLqQ94nLe6jjSqlzyd381RGrdIb50o",
+    authDomain: "global-cooling-be5ce.firebaseapp.com",
+    databaseURL: "https://global-cooling-be5ce.firebaseio.com",
+    projectId: "global-cooling-be5ce",
+    storageBucket: "global-cooling-be5ce.appspot.com",
+    messagingSenderId: "138454202506"
+  };
+  firebase.initializeApp(config);
 
 		function logout(){
 						 firebase.auth().signOut();

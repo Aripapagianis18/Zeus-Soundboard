@@ -3,7 +3,8 @@
  	<head>
  		<meta charset="utf-8">
  		<title>Post</title>
- 		<link rel="shortcut icon" type="image/x-icon" href="Hungr.ico" />
+ 		<link rel="shortcut icon" type="image/x-icon" href="car_icon_hi_ino_icon.ico" />
+ 	
 
   		<!-- Sets initial viewport load and disables zooming  -->
   		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -35,10 +36,12 @@
 
 
   			<input type="text" placeholder="Title" id="Title">
-  			<input type="text" placeholder="Description" id= "Description">
-  			<textarea rows="5" placeholder="Recipe" id="Recipe"></textarea>
-  			<input type="text" placeholder="Image URL" id= "Image">
-
+  			<input type="text" placeholder="Miles Driven" id= "Description">
+  			<input type="text" placeholder="Carbon Dioxide Emmisions" id="Recipe">
+  			<input type="text" placeholder="Average Miles per Gallon" id= "Image">
+			<input type="text" placeholder="Number of Fill ups" id= "Gas">
+			<input type="text" placeholder="Average Range" id= "Range">
+			<input type="text" placeholder="Trees Saved" id= "Tree">
   			
 
   			<input class="btn btn-positive btn-block" type="submit" value="Post" onclick="submit()" /> 
@@ -54,27 +57,26 @@
   			</a>
   			<a class="tab-item" onclick= "window.location.href= 'favorite.html'">
     			<span class="icon icon-star-filled"></span>
-    			<span class="tab-label">Favorites</span>
+    			<span class="tab-label">Realtime Data</span>
   			</a>
 		</nav>
 				
   			
 
 	</body> 
-	<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
-	    apiKey: "AIzaSyC4bBixz0vIevbEivES7jULQsbFSlt88Hc",
-	    authDomain: "hungr-b48be.firebaseapp.com",
-	    databaseURL: "https://hungr-b48be.firebaseio.com",
-	    projectId: "hungr-b48be",
-	    storageBucket: "hungr-b48be.appspot.com",
-	    messagingSenderId: "380370372661"
-	  };
-	  firebase.initializeApp(config);
-	  var u;
+    apiKey: "AIzaSyCGTxLqQ94nLe6jjSqlzyd381RGrdIb50o",
+    authDomain: "global-cooling-be5ce.firebaseapp.com",
+    databaseURL: "https://global-cooling-be5ce.firebaseio.com",
+    projectId: "global-cooling-be5ce",
+    storageBucket: "global-cooling-be5ce.appspot.com",
+    messagingSenderId: "138454202506"
+  };
+  firebase.initializeApp(config);
 	  firebase.auth().onAuthStateChanged(function(user) {
 				  
 				  if (user){
@@ -92,11 +94,17 @@
 			Description_value = $('#Description').val();
 			Recipe_value = $('#Recipe').val();
 			Image_value = $('#Image').val();
+			Gas_value = $('#Gas').val();
+			Range_value = $('#Range').val();
+			Tree_value = $('#Tree').val();
 			database.child('data').push ({
 				"title": title_value, 
 				"Description": Description_value,
 				"Recipe": Recipe_value, 
 				"Image": Image_value,
+				"Gas": Gas_value,
+				"Range": Range_value,
+				"Tree" : Tree_value,
 				"User":u.email})
 			database.child('data').on('value',function(snapshot){
 				console.log(snapshot.val())

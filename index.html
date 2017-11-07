@@ -3,14 +3,15 @@
 
 		<head>
 		<meta charset="utf-8">
- 		<title>Login to Hungr</title>
-		<link rel="shortcut icon" type="image/x-icon" href="Hungr.ico" />
+ 		<title>Login to Global Cooling</title>
+ 		<link rel="shortcut icon" type="image/x-icon" href="car_icon_hi_ino_icon.ico" />
+	
 			<style>
 			.hide{
 				display:none;
 			}
 			#header{
-				background-color: #5CB85C;
+				background-color: #336699;
 				display: block;
 				padding: 17px 0px 17px 25px;
 				margin-bottom: 50px;
@@ -49,12 +50,12 @@
 				text-align: center;
 			}
 			.btn{
-				background-color: #5CB85C;
+				background-color: #336699;
 				color: white;
 				width:50%;
 				margin: auto;
 				display: block;
-				border: 2px groove rgb(92,184,92);
+				border: 2px groove rgb(92,92,184);
 				font-family: arial;
 				font-size:18px;
 				text-decoration:none;
@@ -64,10 +65,10 @@
 				padding: 4px 4px 4px 4px;
 			}
 			#helpuser{
-				color:rgb(0,150,0);
+				color:rgb(0,0,150);
 			}
 			#forgotpassword{
-				color:rgb(0,150,0);
+				color:rgb(0,0,150);
 			}
 			#forgotpasswordwrong{
 				color:rgb(245,0,0);
@@ -76,13 +77,13 @@
 				padding: 4px 4px 4px 4px;
 			}
 			#password{
-				background-color: #5CB85C;
+				background-color: #336699;
 				color: white;
 				padding: 4px 4px 4px 4px;
 				margin: auto;
 				margin-bottom: 3px;
 				display: inline;
-				border: 2px groove rgb(92,184,92);
+				border: 2px groove rgb(92,92,184);
 				font-family: arial;
 				font-size:14px;
 				text-decoration:none;
@@ -91,13 +92,13 @@
 				right:0;
 			}
 			#help{
-				background-color: #5CB85C;
+				background-color: #336699;
 				color: white;
 				padding: 4px 4px 4px 4px;
 				margin: auto;
 				margin-bottom: 3px;
 				display: inline;
-				border: 2px groove rgb(92,184,92);
+				border: 2px groove rgb(92,92,184);
 				font-family: arial;
 				font-size:14px;
 				text-decoration:none;
@@ -108,16 +109,16 @@
 		</head>
 
 		<body>
-			<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyC4bBixz0vIevbEivES7jULQsbFSlt88Hc",
-    authDomain: "hungr-b48be.firebaseapp.com",
-    databaseURL: "https://hungr-b48be.firebaseio.com",
-    projectId: "hungr-b48be",
-    storageBucket: "hungr-b48be.appspot.com",
-    messagingSenderId: "380370372661"
+    apiKey: "AIzaSyCGTxLqQ94nLe6jjSqlzyd381RGrdIb50o",
+    authDomain: "global-cooling-be5ce.firebaseapp.com",
+    databaseURL: "https://global-cooling-be5ce.firebaseio.com",
+    projectId: "global-cooling-be5ce",
+    storageBucket: "",
+    messagingSenderId: "138454202506"
   };
   firebase.initializeApp(config);
 			   //login event
@@ -180,7 +181,7 @@
 			  });
 			</script>
 			<div id="container">
-				<h1 id="header">Welcome to Hungr</h1>
+				<h1 id="header">Welcome to Global Cooling</h1>
 				<input type="text" placeholder="Email" id="email">
 				<input type="password" placeholder="Password" id="pass">
 				<div id="error" class="message"></div>

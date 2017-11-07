@@ -3,7 +3,7 @@
  	<head>
  		<meta charset="utf-8">
  		<title>Homepage</title>
- 		<link rel="shortcut icon" type="image/x-icon" href="Hungr.ico" />
+ 		<link rel="shortcut icon" type="image/x-icon" href="car_icon_hi_ino_icon.ico" />
 
   		<!-- Sets initial viewport load and disables zooming  -->
   		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -19,30 +19,31 @@
 		<script src="js/ratchet.js"></script>
 		<style>
 			#logout{
-				background-color: #5CB85C;
+				background-color: #336699;
 				color: white;
 				padding: 4px 4px 4px 4px;
 				margin: auto;
 				margin-bottom: 3px;
+				margin-top: 5px;
 				display: inline;
-				border: 2px groove rgb(92,184,92);
+				border: 2px groove rgb(92,92,184);
 				border-radius: 20px; 
 				font-family: arial;
 				font-size:14px;
 				text-decoration:none;
 			}
 			#favorite{
-				background-color: #5CB85C;
+				background-color: #336699;
 				color: white;
 				padding: 4px 30px 4px 30px;
 				margin: auto;
 				margin-bottom: 3px;
 				display: inline;
-				border: 2px groove rgb(92,184,92); 
+				border: 2px groove rgb(92,92,184); 
 				font-family: arial;
 				font-size:14px;
 				text-decoration:none;
-				]
+				}
 		</style>
 	</head>
 	
@@ -70,9 +71,15 @@
 		     		<div class="media-body" id="post">
     					<h4><b>{{title}}</b></h4> 
     					<p>by {{User}}</p>
-    					<h5>Description</h5><p>{{Description}}</p><h5>Recipe</h5><p>{{Recipe}}</p>
-    					<img src="{{Image}}" alt="Avatar" style="width:100%" width=25% height=50% >
-    					<button id="favorite" onclick= "favorite()">Favorite</button>	
+    					<h5>Miles Driven</h5><p>{{Description}}</p>
+    					<h5>Carbon Dioxide Emmisions</h5><p>{{Recipe}}</p>
+    					<h5>Average Miles per Gallon</h5><p>{{Image}}</p>
+    					<h5>Number of Fill Ups</h5><p>{{Gas}}</p>
+    					<h5>Average Range</h5><p>{{Range}}</p>
+    					<h5>Trees Saved</h5><p>{{Tree}}</p>
+    					
+    					
+    					
     					
     					
     					
@@ -111,23 +118,23 @@
   			</a>
   			<a class="tab-item" onclick= "window.location.href= 'favorite.html'">
     			<span class="icon icon-star-filled"></span>
-    			<span class="tab-label">Favorites</span>
+    			<span class="tab-label">Realtime Data</span>
   			</a>
 		</nav>
 
-	<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
-	    apiKey: "AIzaSyC4bBixz0vIevbEivES7jULQsbFSlt88Hc",
-	    authDomain: "hungr-b48be.firebaseapp.com",
-	    databaseURL: "https://hungr-b48be.firebaseio.com",
-	    projectId: "hungr-b48be",
-	    storageBucket: "hungr-b48be.appspot.com",
-	    messagingSenderId: "380370372661"
-	  };
-	  firebase.initializeApp(config); 
+    apiKey: "AIzaSyCGTxLqQ94nLe6jjSqlzyd381RGrdIb50o",
+    authDomain: "global-cooling-be5ce.firebaseapp.com",
+    databaseURL: "https://global-cooling-be5ce.firebaseio.com",
+    projectId: "global-cooling-be5ce",
+    storageBucket: "global-cooling-be5ce.appspot.com",
+    messagingSenderId: "138454202506"
+  };
+  firebase.initializeApp(config); 
 	  var data,u;
 	  firebase.auth().onAuthStateChanged(function(user) {
 				  if (user){
@@ -169,6 +176,7 @@
 		function favorite(){
 
 		}
+
 		
 
 		
