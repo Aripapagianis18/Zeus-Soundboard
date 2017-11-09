@@ -31,7 +31,28 @@
 				outline: transparent
 				border: 1px solid black;
 			}
+			#emailsign{
+				height: 40px;
+				width: 400px;
+				font-size: 20px;
+				display: block;
+				margin: auto;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				padding: 0px 0px 0px 10px;
+				outline: transparent
+				border: 1px solid black;
+			}
 			#pass{
+				height: 40px;
+				width: 400px;
+				font-size: 20px;
+				display: block;
+				margin: auto;
+				margin-bottom: 5px;
+				padding: 0px 0px 0px 10px;
+			}
+			#passwords{
 				height: 40px;
 				width: 400px;
 				font-size: 20px;
@@ -63,6 +84,19 @@
 			#login{
 				margin-bottom: 10px;
 				padding: 4px 4px 4px 4px;
+			}
+
+			#confirmpass{
+				height: 40px;
+				width: 400px;
+				font-size: 20px;
+				display: block;
+				margin: auto;
+				margin-top: 20px;
+				margin-bottom: 10px;
+				padding: 0px 0px 0px 10px;
+				outline: transparent
+				border: 1px solid black;
 			}
 			#helpuser{
 				color:rgb(0,0,150);
@@ -105,6 +139,7 @@
 				position:absolute;
 				bottom:0;		
 					}
+
 			</style>
 		</head>
 
@@ -138,17 +173,18 @@
 					
 					
 			  };
-			  //signup event
-			  function signup(){
+			 function signup(){
 				  //get Email and Pass
-				  var email = document.getElementById("email").value;
-				  var pass = document.getElementById("pass").value;
+				  var email = document.getElementById("emailsign").value;
+				  var pass = document.getElementById("passwords").value;
+				  var confirmpass = document.getElementById("confirmpass").value;
 				  var auth = firebase.auth();
+
 				  //sign up
 				  var promise = auth.createUserWithEmailAndPassword(email,pass);
 				  promise.catch(e => console.log(e.message));
 				  //Welcome user
-				  document.getElementById("Welcome").innerHTML = "Welcome to your new Hungr account! Please click Login to continue."
+				  document.getElementById("Welcome").innerHTML = "Welcome to your new Global Cooling account! Please click Login to continue."
 			  };
 			  function password(){
 			  	var auth = firebase.auth();
@@ -178,6 +214,7 @@
 					  console.log("not logged in");
 					  btnlogout.classList.add("hide");
 				  }
+
 			  });
 			</script>
 			<div id="container">
@@ -190,10 +227,15 @@
 				<div id="forgotpasswordwrong" class="message"></div>
 				<br>
 				<div class="btn-div" id="login-div"><button class= "btn" id="login" onclick="login()" >Log In</button></div>
-				<div class="btn-div" id="signp-div"><button class="btn" id="signup" onclick="window.location.href = 'signup.html'">Sign Up</button></div>
 				<button id="password" onclick= "password()">Forgot Password</button>
 				<button id= "help" onclick= "help()">Help</button>
 				<div id= "helpuser" class="message"></div>
+				<input type="text" placeholder="Email" id="emailsign">
+				<input type="password" placeholder="Password" id="passwords">
+				<input type="password" placeholder="Confirm Password" id="confirmpass">
+				<div id="Welcome" class="message"></div>
+				<br>
+				<div class="btn-div" id="signp-div"><button class="btn" id="signup" onclick="signup()" >Sign Up</button></div>
 				 
 		</body>
 
