@@ -43,7 +43,7 @@
 				outline: transparent
 				border: 1px solid black;
 			}
-			#pass{
+			#passwords{
 				height: 40px;
 				width: 400px;
 				font-size: 20px;
@@ -52,7 +52,7 @@
 				margin-bottom: 5px;
 				padding: 0px 0px 0px 10px;
 			}
-			#passwords{
+			#pass{
 				height: 40px;
 				width: 400px;
 				font-size: 20px;
@@ -184,7 +184,7 @@
 				  var promise = auth.createUserWithEmailAndPassword(email,pass);
 				  promise.catch(e => console.log(e.message));
 				  //Welcome user
-				  document.getElementById("Welcome").innerHTML = "Welcome to your new Global Cooling account! Please click Login to continue."
+				  document.getElementById("Welcome").innerHTML = "Welcome to your new Global Cooling account!"
 			  };
 			  function password(){
 			  	var auth = firebase.auth();
